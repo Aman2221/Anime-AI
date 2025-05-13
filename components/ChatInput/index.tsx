@@ -1,7 +1,6 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import useUserStore from "@/store/userStore";
 
 const ChatInput = ({
   prompt,
@@ -14,13 +13,13 @@ const ChatInput = ({
   setPrompt: (a: string) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) => {
-  const user = useUserStore((state) => state.user);
-
-  const handleInputChange = (e: React.ChangeEvent) => {
-    let target: any = e.target;
-    console.log(target.value);
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const target = e.target;
     setPrompt(target?.value);
   };
+
   return (
     <form
       onSubmit={handleSubmit}

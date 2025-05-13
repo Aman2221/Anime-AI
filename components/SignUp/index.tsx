@@ -20,8 +20,10 @@ const SignUpPage = () => {
     imgURL: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let target: any = e.target;
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const target = e.target;
     setUser({
       ...user,
       [target.name]: target.value,
