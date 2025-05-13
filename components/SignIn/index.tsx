@@ -47,8 +47,14 @@ const SignInPage = () => {
         router.push("/");
         toast("User logged in successfully");
       } else toast("Something bad happend on the server");
-    } catch (e: any) {
-      toast(e?.error || e?.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        toast(e.message);
+      } else if (typeof e === "string") {
+        toast(e);
+      } else {
+        toast("An unexpected error occurred");
+      }
     }
   };
 

@@ -44,8 +44,14 @@ const SignUpPage = () => {
         setUserToStore(user);
         router.push("/auth/sign-in");
       } else toast("User already exists");
-    } catch (e: any) {
-      toast(e?.error || e?.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        toast(e.message);
+      } else if (typeof e === "string") {
+        toast(e);
+      } else {
+        toast("An unexpected error occurred");
+      }
     }
   };
 

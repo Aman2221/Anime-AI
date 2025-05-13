@@ -46,7 +46,7 @@ const Sidebar = ({ showSidebar }: { showSidebar: boolean }) => {
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           {chatSessions.length ? (
             <ul className="space-y-3 font-medium">
-              {chatSessions.map((chat: any) => {
+              {chatSessions.map((chat) => {
                 return (
                   <li
                     className="border rounded-lg bg-gray-700 "
