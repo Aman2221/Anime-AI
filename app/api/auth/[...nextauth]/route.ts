@@ -7,7 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 import type { NextAuthOptions } from "next-auth";
 import { v4 as uuid } from "uuid";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
     adapter: MongoDBAdapter(clientPromise),
     session: {
         strategy: "jwt",
